@@ -83,21 +83,24 @@ article{
 }
 
 article img{
-    float: left;
+    float: none;
     border-style: solid;
     border-radius: 10%;
     border-color: hsl(39, 77%, 73%);
     border-width: 5px;
-    margin-right: 1rem;
 }
 
 #photo{
-    float: left;
-    border-radius: 100%;
+    float: none;
+    display: block;
     border-style: solid;
+    border-radius: 100%;
     border-color: hsl(39, 77%, 73%);
     border-width: 5px;
-    margin-right: 1rem;
+    margin-left: auto;
+    margin-right: auto;
+    width: 200px;
+    height: 200px;
 }
 
 #cv_container, #portfolio_container{
@@ -112,30 +115,21 @@ footer{
     grid-area: footer;
 }
 
-@media (max-width: 600px){
+@media (min-width: 600px){
     article img{
-        float: none;
+        float: left;
+        margin-right: 1rem;
     }
-
+    
     #photo{
-        float: none;
-        display: block;
-        margin-left: auto;
-        margin-right: auto;
+        float: left;
+        margin-right: 1rem;
     }
 }
 
-@media (max-width: 425px){
-    article img{
-        float: none;
-    }
-
+@media (min-width: 425px){
     #photo{
-        float: none;
-        display: block;
-        margin-left: auto;
-        margin-right: auto;
-        width: 200px;
-        height: 200px;
+        width: 300px;
+        height: 300px;
     }
 }

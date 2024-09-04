@@ -1,3 +1,3 @@
-# PWeb.github.io
+# PWeb
 Hosted and live web:
-https://notmytata.github.io/PWeb.github.io/
+https://notmytata.github.io/PWeb/
