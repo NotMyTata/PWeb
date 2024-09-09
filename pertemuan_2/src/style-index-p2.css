@@ -1,0 +1,67 @@
+body{
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr auto auto;
+    grid-template-areas: 
+    "header header"
+    "main main"
+    "footer footer";
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+}
+
+header{
+    grid-area: header;
+}
+
+main{
+    grid-area: main;
+}
+
+main table{
+    margin-left: auto;
+    margin-right: auto;
+}
+
+table, th, td{
+    border-collapse: collapse;
+    border-color: black;
+}
+
+.score-table{
+    width: 300px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.score-table .heading{
+    background-color:dodgerblue;
+    color: white;
+}
+
+.login-container{
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: left;
+    border: 1px solid;
+    padding: 5px;
+}
+
+.login-container tr td{
+    padding: 5px; 
+}
+
+.text-login{
+    position: absolute;
+    margin-top: -15px;
+    background-color: white;
+    width: max-content;
+}
+
+footer{
+    grid-area: footer;
+}
