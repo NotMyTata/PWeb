@@ -26,7 +26,7 @@ main table{
     margin-right: auto;
 }
 
-table, th, td{
+.score-table, th, td{
     border-collapse: collapse;
     border-color: black;
 }
@@ -57,9 +57,18 @@ table, th, td{
 
 .text-login{
     position: absolute;
-    margin-top: -15px;
+    margin-top: -20px;
     background-color: white;
     width: max-content;
+}
+
+.product-table{
+    text-align: left;
+}
+
+.p-heading{
+    background-color: yellow;
+    text-align: center;
 }
 
 footer{

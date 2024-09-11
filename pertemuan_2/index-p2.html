@@ -12,16 +12,19 @@
     </header>
     <main>
         <table class="container">
-            <tr class="table-title">
+            <thead class="table-title">
                 <th>
                     <h2 id="score-title">Score Table</h2>
                 </th>
                 <th>
                     <h2 id="login-title">Login Form</h2>
                 </th>
-            </tr>
-            <tr clas="content">
-                <td>
+                <th>
+                    <h2 id="product-title">Product Table</h2>
+                </th>
+            </thead>
+            <tbody class="content">
+                <td class="table1">
                     <table class="score-table" border="1">
                         <tr class="heading">
                             <th rowspan="2">Nama</th>
@@ -52,7 +55,7 @@
                         </tr>
                     </table>
                 </td>
-                <td>
+                <td class="table2">
                     <table class="login-container">
                         <tr><td><div class="text-login">Login</div></td></tr>
                         <tr><td>Username: <input type="text"></td></tr>
@@ -61,7 +64,34 @@
                         <tr><td><button>Login</button></td></tr>
                     </table>
                 </td>
-            </tr>
+                <td class="table3">
+                    <table class="product-table" border="1">
+                        <tr>
+                            <th colspan="3" class="p-heading">Produk Unggulan</th>
+                        </tr>
+                        <tr>
+                            <td rowspan="3" class="product-image"><img src="./img/p-img.png" alt="p-img" width="150"></image></td>
+                            <td>Nama</td>
+                            <td>Benih Kode</td>
+                        </tr>
+                        <tr>
+                            <td>Harga</td>
+                            <td>Rp 192.000</td>
+                        </tr>
+                        <tr>
+                            <td>Fitur</td>
+                            <td>
+                                <ul>
+                                    <li>Dilengkapi Dokumentasi</li>
+                                    <li>Ukuran: 31MB</li>
+                                    <li>Masa Tanam: 6 Bulan</li>
+                                    <li>Lisensi: MIT</li>
+                                </ul>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tbody>
         </table>
     </main>
     <footer>

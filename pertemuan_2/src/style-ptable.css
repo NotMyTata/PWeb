@@ -1,0 +1,35 @@
+body{
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr auto auto;
+    grid-template-areas: 
+    "header header"
+    "main main"
+    "footer footer";
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+}
+
+header{
+    grid-area: header;
+    text-align: center;
+}
+
+main{
+    grid-area: main;
+}
+
+main table{
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.heading{
+    background-color:yellow;
+}
+
+footer{
+    grid-area: footer;
+}
