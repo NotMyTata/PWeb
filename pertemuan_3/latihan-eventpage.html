@@ -1,0 +1,136 @@
+<!--Reference: https://www.geeksforgeeks.org/design-an-event-webpage-using-html-css/-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Page</title>
+    <style>
+        body{
+            background-image: url(./img/cool-colorful.jpg);
+            margin: 0;
+            padding: 0;
+        }
+        .separator{
+            height: 100vh;
+        }
+        table{
+            margin-left: auto;
+            margin-right: auto;
+            padding: 2%;
+        }
+        table col{
+            width: 50%;
+        }
+        .left-box{
+            background: rgba(0, 0, 0, .9);
+        }
+        .right-box{
+            background: rgba(200, 200, 200, .9)
+        }
+        .box-container{
+            color: white;  
+            padding: 20px;
+        }
+        .event-content{
+            background-color: white;
+            border: 1px solid black;
+            margin: 10px;
+            padding: 0;
+        }
+        .event-date{
+            text-align: center;
+            background-color: black;
+            color: white;
+            width: 150px;
+        }
+        .event-date p{
+            margin: 0;
+        }
+        .day-date{
+            font-size: 36px;
+            font-weight: bold;
+        }
+        .event-title{
+            font-weight: bold;
+        }
+        .event-button{
+            background-color: white;
+            border-radius: 10px;
+            padding: 10px;
+        }
+        .event-button:hover{
+            background-color: hsl(0, 0%, 95%);
+        }
+    </style>
+</head>
+<body>
+    <table class="separator" border="1">
+        <col span="2">
+        <td class="left-box">
+            <div class="box-container">
+                <h1>EVENTS AND SHOWS</h1>
+                <p>
+                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Similique eum ut vel fuga soluta, quas, 
+                    ipsum doloremque recusandae nisi laborum nesciunt delectus aut explicabo culpa qui ducimus. 
+                    Molestias eaque ipsum rerum nisi facilis? Fugit eos provident impedit inventore dolorem laborum 
+                    iure deleniti magnam eius recusandae libero doloremque, ipsum ratione sapiente delectus dignissimos 
+                    aut quidem unde blanditiis earum? Veniam, sit quae magni, nesciunt vel libero ducimus, delectus quia 
+                    omnis ratione velit consectetur esse mollitia! Deserunt laborum impedit cupiditate veniam consectetur 
+                    vitae, sequi aspernatur omnis repudiandae rerum facilis officia enim nam repellat totam ea maiores nisi ratione. 
+                    Totam nesciunt voluptatibus perferendis tempora.
+                </p>
+            </div>
+        </td>
+        <td class="right-box">
+            <div class="event-container">
+                <table class="event-content">
+                    <tr>
+                        <td rowspan="3" class="event-date">
+                            <p class="day-date">15</p>
+                            <p class="month-date">March</p>
+                        </td>
+                        <td class="event-title">Where is the event happening?</td>
+                    </tr>
+                    <tr>
+                        <td class="event-desc">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Excepturi error eos nemo hic dolores assumenda libero fugiat autem nulla sapiente, voluptatum a consequuntur fugit numquam voluptate tempore eum voluptatem cumque rerum, architecto quae. Adipisci explicabo molestias dolores illum libero eveniet id nemo iusto numquam, iure eum ducimus quidem provident nihil.</td>
+                    </tr>
+                    <tr>
+                        <td><button class="event-button">View Details</button></td>
+                    </tr>
+                </table>
+                <table class="event-content">
+                    <tr>
+                        <td rowspan="3" class="event-date">
+                            <p class="day-date">27</p>
+                            <p class="month-date">May</p>
+                        </td>
+                        <td class="event-title">Where is the event happening?</td>
+                    </tr>
+                    <tr>
+                        <td class="event-desc">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Excepturi error eos nemo hic dolores assumenda libero fugiat autem nulla sapiente, voluptatum a consequuntur fugit numquam voluptate tempore eum voluptatem cumque rerum, architecto quae. Adipisci explicabo molestias dolores illum libero eveniet id nemo iusto numquam, iure eum ducimus quidem provident nihil.</td>
+                    </tr>
+                    <tr>
+                        <td><button class="event-button">View Details</button></td>
+                    </tr>
+                </table>
+                <table class="event-content">
+                    <tr>
+                        <td rowspan="3" class="event-date">
+                            <p class="day-date">12</p>
+                            <p class="month-date">August</p>
+                        </td>
+                        <td class="event-title">Where is the event happening?</td>
+                    </tr>
+                    <tr>
+                        <td class="event-desc">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Excepturi error eos nemo hic dolores assumenda libero fugiat autem nulla sapiente, voluptatum a consequuntur fugit numquam voluptate tempore eum voluptatem cumque rerum, architecto quae. Adipisci explicabo molestias dolores illum libero eveniet id nemo iusto numquam, iure eum ducimus quidem provident nihil.</td>
+                    </tr>
+                    <tr>
+                        <td><button class="event-button">View Details</button></td>
+                    </tr>
+                </table>
+            </div>
+        </td>
+    </table>
+</body>
+</html>
