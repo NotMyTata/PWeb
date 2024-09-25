@@ -5,77 +5,107 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Form Registrasi</title>
     <style>
+        *{
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        }
         h1{
             text-align: center;
         }
         table{
             margin-left: auto;
             margin-right: auto;
+            background-color: wheat;
+            border-radius: 30px;
+            padding: 20px;
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.2);
+        }
+        .button-row input{
+            border: 0;
+            color: white;
+            border-radius: 5px;
+            padding: 10px;
+            font-weight: bold;
+            box-shadow: 4px 3px 2px 0 black;
+            margin-right: 10px;
+        }
+        #submit{
+            background-color: green;
+        }
+        #submit:hover{
+            background-color: hsl(120, 100%, 20%);
+        }
+        #reset{
+            background-color: red;
+        }
+        #reset:hover{
+            background-color: hsl(0, 100%, 40%);
         }
     </style>
 </head>
-<body bgcolor="skyblue">
+<body>
     <header>
-        <h1>Form Registrasi</h1>
+        <h1>Form Selection Asdos</h1>
     </header>
     <main>
         <form>
-            <table class="container" cellpadding="2" cellspacing="10">
-                <tr class="firstname-row">
-                    <td>First Name</td>
-                    <td><input type="text" name="firstName"></td>
+            <table class="container" cellpadding="5" cellspacing="10">
+                <tr class="name-row">
+                    <td>Name:</td>
+                    <td><input type="text" name="name"></td>
                 </tr>
-                <tr class="midname-row">
-                    <td>Middle Name:</td>
-                    <td><input type="text" name="midName"></td>
-                </tr>
-                <tr class="lastname-row">
-                    <td>Last Name:</td>
-                    <td><input type="text" name="lastName"></td>
+                <tr class="nrp-row">
+                    <td>NRP:</td>
+                    <td><input type="text" name="nrp"></td>
                 </tr>
                 <tr class="course-row">
                     <td>Course:</td>
                     <td>
-                        <select name="a">
-                            <option value="course">Course
+                        <select name="course">
+                            <option value="default">---</option>
+                            <option value="dasprog">Dasar Pemrograman</option>
+                            <option value="basdat">Sistem Basis Data</option>
+                            <option value="ppl">PPL</option>
+                            <option value="kalkulus1">Kalkulus I</option>
+                            <option value="siskom" >Sisdig & Orkom</option>
+                            <option value="alin">Aljabar Linier</option>
                         </select>
                     </td>
                 </tr>
                 <tr class="gender-row">
-                    <td colspan="2">Gender<br>
-                        <input type="radio" name="opt" value="m">Male<br>
-                        <input type="radio" name="opt" value="f">Female<br>
-                        <input type="radio" name="opt" value="o">Other
+                    <td>Gender:</td>
+                    <td>
+                        <input type="radio" name="opt" value="m">Male
+                        <input type="radio" name="opt" value="f">Female
                     </td>
                 </tr>
                 <tr class="phone-row">
                     <td>Phone:</td>
                     <td>
-                        <select name="country-code"><option value="+62">+62</option>
-                        <input type="number" name="phone-number" min="10" max="111111111111"> 
+                        <select name="country-code">
+                            <option value="+62">+62</option>
+                        <input type="number" name="phone-number" min="10000000000" max="111111111111"> 
                     </td>
                 </tr>
-                <tr class="address-row">
-                    <td colspan="2">Address:<br>
-                        <textarea cols="40" rows="10" name="address"></textarea>
+                <tr class="motive-row">
+                    <td colspan="2">Motive:<br>
+                        <textarea cols="50" rows="10" name="motive">Enter your reasons why you want to apply...</textarea>
                     </td>
                 </tr>
                 <tr class="email-row">
                     <td>Email:</td>
                     <td><input type="text" name="email"></td>
                 </tr>
-                <tr class="password-row">
-                    <td>Password:</td>
-                    <td><input type="password" name="pass"></td>
-                </tr>
-                <tr class="retype-pass-row">
-                    <td>Re-type password:</td>
-                    <td><input type="password" name="repass"></td>
+                <tr class="past-exp-row">
+                    <td>Past Experience:</td>
+                    <td>
+                        <input type="radio" name="past-opt" value="have">Have
+                        <input type="radio" name="past-opt" value="havent">Haven't
+                    </td>
                 </tr>
                 <tr class="button-row">
-                    <td>
-                        <input type="submit" name="submit">
-                        <input type="reset" name="reset">
+                    <td colspan="2">
+                        <input type="submit" id="submit" name="submit">
+                        <input type="reset" id="reset" name="reset">
                     </td>
                 </tr>
             </table>
