@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crossword Puzzle</title>
+    <style>
+        body{
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        .game-container{
+            display: flex;
+        }
+        .grid-puzzle{
+            padding: 20px;
+            display: grid;
+            grid-template-rows: repeat(7,62px);
+        }
+        .row{
+            display: grid;
+            grid-template-columns: repeat(11, 60px);
+        }
+        .cell{
+            height: 60px;
+            width: 60px;
+            background-color: white;
+            border: 2px solid black;
+        }
+        .null{
+            background-color: black;
+        }
+        .answer{
+            position: relative;
+            font-size: 24px;
+            bottom: 45px;
+            left: 20px;
+            color: transparent;
+        }
+        .num{
+            left: 8px;
+        }
+        .cell input{
+            display: block;
+            font-family: 'Times New Roman', Times, serif;
+            position: relative;
+            text-align: center;
+            font-size: 24px;
+            height: 60px;
+            width: 60px;
+            background-color: transparent;
+            border: none;
+        }
+        input:focus{
+            outline: none;
+        }
+        .box-num{
+            position: relative;
+            left: 5px;
+            bottom: 60px;
+        }
+        .clues-container{
+            display: grid;
+            padding: 20px;
+        }
+        .clue-header{
+            text-align: center;
+        }
+        button{
+            padding: 10px;
+            height: max-content;
+            background-color: white;
+            border: 1px solid black;
+        }
+        button:hover{
+            background-color: hsl(0, 0%, 95%);
+        }
+        button:hover ~ .grid-puzzle .answer{
+            color: black;
+        }
+        button:hover ~ .grid-puzzle input{
+            color: transparent;
+        }
+    </style>
+</head>
+<body>
+    <h1>Crossword Puzzle</h1>
+
+    <div class="clues-container">
+        <div class="clue-header">
+            <h2>Hint</h2>
+        </div>
+        <div class="across-section">
+            <div class="section-header">
+                <h3>Across:</h3>
+            </div>
+            <div class="clue">
+                <p>1. Singkatan salah satu institut perguruan tinggi di Surabaya.</p>
+            </div>
+            <div class="clue">
+                <p>3. Jurusan yang memiliki daya tampung terbanyak dalam suatu institut di Surabaya.</p>
+            </div>
+            <div class="clue">
+                <p>4. Jurusan baru yang mempelajari hal terkait software.</p>
+            </div>
+            <div class="clue">
+                <p>7. Salah satu lab dalam departemen TC yang bertema jaringan cyber.</p>
+            </div>
+        </div>
+        <div class="down-section">
+            <div class="section-header">
+                <h3>Down:</h3>
+            </div>
+            <div class="clue">
+                <p>2. Jumlah jurusan yang berada di departemen TC.</p>
+            </div>
+            <div class="clue">
+                <p>5. Jurusan baru yang mempelajari hal terkait kecerdasan buatan.</p>
+            </div>
+            <div class="clue">
+                <p>6. Jumlah lab yang berada di departemen TC.</p>
+            </div>
+            <div class="clue">
+                <p>8. Salah satu lab dalam departemen TC yang bertema jaringan cloud.</p>
+            </div>
+        </div>
+    </div>
+
+    <button>Tampilkan Jawaban</button>
+
+    <div class="grid-puzzle">
+        <div class="row">
+            <div class="null cell"></div>
+            <div class="cell">
+                <input type="text" maxlength="1">
+                <span class="box-num">6</span>
+                <span class="num answer">D</span>
+            </div>
+            <div class="null cell"></div>
+            <div class="null cell"></div>
+            <div class="cell">
+                <input type="text" maxlength="1">
+                <span class="box-num">8</span>
+                <span class="num answer">N</span>
+            </div>
+            <div class="null cell"></div>
+            <div class="null cell"></div>
+            <div class="null cell"></div>
+            <div class="null cell"></div>
+            <div class="null cell"></div>
+            <div class="null cell"></div>
+        </div>
+        <div class="row">
+            <div class="cell">
+                <input type="text" maxlength="1">
+                <span class="box-num">7</span>
+                <span class="num answer">N</span>
+            </div>
+            <div class="cell">
+                <input type="text" maxlength="1">
+                <span class="answer">E</span>
+            </div>
+            <div class="cell">
+                <input type="text" maxlength="1">
+                <span class="answer">T</span>
+            </div>
+            <div class="cell">
+                <input type="text" maxlength="1">
+                <span class="answer">I</span>
+            </div>
+            <div class="cell">
+                <input type="text" maxlength="1">
+                <span class="answer">C</span>
+            </div>
+            <div class="cell">
+                <input type="text" maxlength="1">
+                <span class="answer">S</span>
+            </div>
+            <div class="null cell"></div>
+            <div class="null cell"></div>
+            <div class="null cell"></div>
+            <div class="null cell"></div>
+            <div class="null cell"></div>
+        </div>
+        <div class="row">
+            <div class="null cell"></div>
+            <div class="cell">
+                <input type="text" maxlength="1">
+                <span class="answer">L</span>
+            </div>
+            <div class="null cell"></div>
+            <div class="null cell"></div>
+            <div class="cell">
+                <input type="text" maxlength="1">
+                <span class="answer">C</span>
+            </div>
+            <div class="null cell"></div>
+            <div class="null cell"></div>
+            <div class="null cell"></div>
+            <div class="null cell"></div>
+            <div class="null cell"></div>
+            <div class="null cell"></div>
+        </div>
+        <div class="row">
+            <div class="null cell"></div>
+            <div class="cell">
+                <input type="text" maxlength="1">
+                <span class="answer">A</span>
+            </div>
+            <div class="null cell"></div>
+            <div class="null cell"></div>
+            <div class="null cell"></div>
+            <div class="null cell"></div>
+            <div class="cell">
+                <input type="text" maxlength="1">
+                <span class="box-num">2</span>
+                <span class="num answer">T</span>
+            </div>
+            <div class="null cell"></div>
+            <div class="null cell"></div>
+            <div class="null cell"></div>
+            <div class="null cell"></div>
+        </div>
+        <div class="row">
+            <div class="cell">
+                <input type="text" maxlength="1">
+                <span class="box-num">4</span>
+                <span class="num answer">R</span>
+            </div>
+            <div class="cell">
+                <input type="text" maxlength="1">
+                <span class="answer">P</span>
+            </div>
+            <div class="cell">
+                <input type="text" maxlength="1">
+                <span class="answer">L</span>
+            </div>
+            <div class="null cell"></div>
+            <div class="null cell"></div>
+            <div class="null cell"></div>
+            <div class="cell">
+                <input type="text" maxlength="1">
+                <span class="box-num">1</span>
+                <span class="num answer">I</span>
+            </div>
+            <div class="cell">
+                <input type="text" maxlength="1">
+                <span class="answer">T</span>
+            </div>
+            <div class="cell">
+                <input type="text" maxlength="1">
+                <span class="answer">S</span>
+            </div>
+            <div class="null cell"></div>
+            <div class="cell">
+                <input type="text" maxlength="1">
+                <span class="box-num">5</span>
+                <span class="num answer">R</span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="null cell"></div>
+            <div class="cell">
+                <input type="text" maxlength="1">
+                <span class="answer">A</span>
+            </div>
+            <div class="null cell"></div>
+            <div class="null cell"></div>
+            <div class="null cell"></div>
+            <div class="null cell"></div>
+            <div class="cell">
+                <input type="text" maxlength="1">
+                <span class="answer">G</span>
+            </div>
+            <div class="null cell"></div>
+            <div class="null cell"></div>
+            <div class="null cell"></div>
+            <div class="cell">
+                <input type="text" maxlength="1">
+                <span class="answer">K</span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="cell">
+                <input type="text" maxlength="1">
+                <span class="box-num">3</span>
+                <span class="num answer">I</span>
+            </div>
+            <div class="cell">
+                <input type="text" maxlength="1">
+                <span class="answer">N</span>
+            </div>
+            <div class="cell">
+                <input type="text" maxlength="1">
+                <span class="answer">F</span>
+            </div>
+            <div class="cell">
+                <input type="text" maxlength="1">
+                <span class="answer">O</span>
+            </div>
+            <div class="cell">
+                <input type="text" maxlength="1">
+                <span class="answer">R</span>
+            </div>
+            <div class="cell">
+                <input type="text" maxlength="1">
+                <span class="answer">M</span>
+            </div>
+            <div class="cell">
+                <input type="text" maxlength="1">
+                <span class="answer">A</span>
+            </div>
+            <div class="cell">
+                <input type="text" maxlength="1">
+                <span class="answer">T</span>
+            </div>
+            <div class="cell">
+                <input type="text" maxlength="1">
+                <span class="answer">I</span>
+            </div>
+            <div class="cell">
+                <input type="text" maxlength="1">
+                <span class="answer">K</span>
+            </div>
+            <div class="cell">
+                <input type="text" maxlength="1">
+                <span class="answer">A</span>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
