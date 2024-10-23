@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Landing Page</title>
+    <link rel="icon" href="icon.png">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+        html{
+            scroll-behavior: smooth;
+        }
+        body{
+            margin: 0;
+            padding: 0;
+            background-color: rgb(40, 40, 40); 
+        }
+        *{
+            font-family: "Inter", sans-serif;
+            color: white;
+            text-decoration: none;
+        }
+        header{
+            background-color: rgb(20, 20, 20);
+            padding: 10px 5%;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            position: sticky;
+            top: 0;
+        }
+        .logo{
+            display: flex;
+        }
+        .logo-link{
+            margin-right: auto;
+        }
+        .logo p{
+            margin-left: 5px;
+        }
+        .nav-links li{
+            list-style: none;
+            display: inline-block;
+            padding: 0px 10px;
+        }
+        .nav-links a, button{
+            transition: all 0.25s ease 0s;
+        }
+        .nav-links a:hover{
+            background-color: hotpink;
+            border-radius: 8px;
+            padding: 10px;
+        }
+        .sign-buttons{
+            margin-left: 20px;
+        }
+        .sign-buttons button{
+            padding: 10px;
+            width: 70px;
+            height: 40px;
+            margin: 0 5px;
+            border: none;
+            border-radius: 8px;
+        }
+        #login{
+            background-color: white;
+            color: black;
+            cursor: pointer;
+        }
+        #signup{
+            background-color: hotpink;
+            cursor: pointer;
+        }
+        #login:hover{
+            background-color: hsl(0, 0%, 80%);
+        }
+        #signup:hover{
+            background-color: hsl(330, 100%, 30%);
+        }
+        main section{
+            display: block;
+            padding: 72px 5% 144px;
+            margin-top: -72px;
+        }
+        #home{
+            background-color: hsl(35, 60%, 55%);
+            display: flex;
+            align-items: center;
+            justify-content: space-evenly;
+        }
+        #home button{
+            cursor: pointer;
+            padding: 10px;
+            border-radius: 8px;
+            margin: 0 5px;
+        }
+        #free-trial{
+            background-color: hotpink;
+            border: none;
+        }
+        #free-trial:hover{
+            background-color: hsl(330, 100%, 30%);
+        }
+        #see-statistics{
+            background-color: transparent;
+            border: 1px solid white;
+        }
+        #see-statistics:hover{
+            background-color: white;
+            color: black;
+        }
+        #statistics-section{
+            text-align: center;
+            justify-content: center;
+        }
+        .stat-container{
+            display: flex;
+            justify-content: space-evenly;
+        }
+        .stat{
+            text-align: center; 
+        }
+        #courses-section{
+            background-color: hsl(330, 55%, 50%);
+        }
+        #courses-section > h1, #courses-section > p{
+            text-align: center;
+        }
+        .card-container{
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-evenly;
+        }
+        .course-card{
+            width: 25%;
+            padding: 20px 10px;
+        }
+        .progress-bar{
+            height: 10px;
+            background-color: gold;
+            border-radius: 8px;;
+        }
+        .bar-5{
+            width: 150px;
+        }
+        .bar-4{
+            width: 30px;
+        }
+        .bar-3{
+            width: 6px;
+        }
+        .bar-2{
+            width: 10px;
+        }
+        .bar-1{
+            width: 12px;
+        }
+        thead{
+            text-align: center;
+        }
+        tbody p{
+            margin: 0;
+        }
+        .rating-list-card{
+            grid-area: rating-list-card;
+        }
+        .pfp{
+            width: 30px;
+            height: 30px;
+            border-radius: 100%;
+            background-color: white;
+        }
+        .testimony-card{
+            width: 35%;
+            padding: 5px 10px;
+        }
+        .testimony-header, .testimony-header *{
+            display: flex;
+            margin: 0 5px 0 0;
+            align-items: center;
+        }
+        .testimony-header{
+            justify-content: space-between;
+        }
+        .testimony-container{
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-evenly;
+            width: 75%;
+        }
+        .testimony{
+            display: flex;
+            justify-content: space-evenly;
+        }
+        #testimonies-section > h1{
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <a class="logo-link" href="#">
+            <div class="logo">
+                <img height="50" width="50" src="icon.png">
+                <p>Professor Donut</p>
+            </div>
+        </a>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="#statistics-section">Statistics</a></li>
+                <li><a href="#courses-section">Courses</a></li>
+                <li><a href="#testimonies-section">Testimonies</a></li>
+                <li><a href="#support-section">Support</a></li>
+            </ul>
+        </nav>
+        <div class="sign-buttons">    
+            <button id="login">Log in</button>
+            <button id="signup">Sign up</button>
+        </div>
+    </header>
+    <main>
+        <section id="home">
+            <div class="text">
+                <h1>Lorem Ipsum Dolor Sit Amet Consectetur</h1>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum possimus praesentium, sunt placeat et sit commodi est at ipsum, rem, repellendus a animi itaque id aliquid! Reprehenderit eos molestias obcaecati.
+                Facilis odit quibusdam alias pariatur et amet culpa nostrum odio, explicabo tenetur tempore saepe reprehenderit doloremque quis rem necessitatibus eius dolorem veniam ad modi. Ratione recusandae ipsam nam iusto esse!</p>
+                <button id="free-trial">Start Free Trial</button>
+                <a href="#statistics-section"><button id="see-statistics">See Statistics</button></a>
+            </div>
+            <div class="image">
+                <img width="300"src="profdonut.svg">
+            </div>
+        </section>
+        <section id="statistics-section">
+            <h1>Statistics</h1>
+            <div class="stat-container">
+                <div class="stat">
+                    <h2>10k+</h2>
+                    <p>Active Students</p>
+                </div>
+                <div class="stat">
+                    <h2>100+</h2>
+                    <p>Lecturers</p>
+                </div>
+                <div class="stat">
+                    <h2>500+</h2>
+                    <p>Courses</p>
+                </div>
+                <div class="stat">
+                    <h2><img width="20" src=star.svg>4.8/5.0</h2>
+                    <p>Average Rating</p>
+                </div>
+            </div>
+        </section>
+        <section id="courses-section">
+            <h1>Courses</h1>
+            <div class="card-container">
+                <div class="course-card">
+                    <img height="100" src="card-img.svg">
+                    <h2>Web Development</h2>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae quas, tempora reiciendis obcaecati odit modi enim autem dolore animi rerum culpa quibusdam ab similique omnis eius excepturi quos suscipit officia!</p> 
+                </div>
+                <div class="course-card">
+                    <img height="100" src="card-img.svg">
+                    <h2>Web Development</h2>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae quas, tempora reiciendis obcaecati odit modi enim autem dolore animi rerum culpa quibusdam ab similique omnis eius excepturi quos suscipit officia!</p> 
+                </div><div class="course-card">
+                    <img height="100" src="card-img.svg">
+                    <h2>Web Development</h2>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae quas, tempora reiciendis obcaecati odit modi enim autem dolore animi rerum culpa quibusdam ab similique omnis eius excepturi quos suscipit officia!</p> 
+                </div><div class="course-card">
+                    <img height="100" src="card-img.svg">
+                    <h2>Web Development</h2>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae quas, tempora reiciendis obcaecati odit modi enim autem dolore animi rerum culpa quibusdam ab similique omnis eius excepturi quos suscipit officia!</p> 
+                </div><div class="course-card">
+                    <img height="100" src="card-img.svg">
+                    <h2>Web Development</h2>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae quas, tempora reiciendis obcaecati odit modi enim autem dolore animi rerum culpa quibusdam ab similique omnis eius excepturi quos suscipit officia!</p> 
+                </div><div class="course-card">
+                    <img height="100" src="card-img.svg">
+                    <h2>Web Development</h2>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae quas, tempora reiciendis obcaecati odit modi enim autem dolore animi rerum culpa quibusdam ab similique omnis eius excepturi quos suscipit officia!</p> 
+                </div><div class="course-card">
+                    <img height="100" src="card-img.svg">
+                    <h2>Web Development</h2>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae quas, tempora reiciendis obcaecati odit modi enim autem dolore animi rerum culpa quibusdam ab similique omnis eius excepturi quos suscipit officia!</p> 
+                </div><div class="course-card">
+                    <img height="100" src="card-img.svg">
+                    <h2>Web Development</h2>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae quas, tempora reiciendis obcaecati odit modi enim autem dolore animi rerum culpa quibusdam ab similique omnis eius excepturi quos suscipit officia!</p> 
+                </div><div class="course-card">
+                    <img height="100" src="card-img.svg">
+                    <h2>Web Development</h2>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae quas, tempora reiciendis obcaecati odit modi enim autem dolore animi rerum culpa quibusdam ab similique omnis eius excepturi quos suscipit officia!</p> 
+                </div>
+            </div>
+            <p>And many more...</p>
+        </section>
+        <section id="testimonies-section">
+            <h1>Testimonies</h1>
+            <div class="testimony">
+                <table class="rating-list-card" cellpadding="5">
+                    <thead>
+                        <tr><td colspan="3">
+                            <h2><img width="20"src="star.svg">4.8/5.0</h2>
+                        </td></tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><p><img width="15"src="star.svg">5</p></td>
+                            <td><div class="progress-bar bar-5"></div></td>
+                            <td><p>1200</p></td>
+                        </tr>
+                        <tr>
+                            <td><p><img width="15"src="star.svg">4</p></td>
+                            <td><div class="progress-bar bar-4"></div></td>
+                            <td><p>120</p></td>
+                        </tr>
+                        <tr>
+                            <td><p><img width="15"src="star.svg">3</p></td>
+                            <td><div class="progress-bar bar-3"></div></td>
+                            <td><p>48</p></td>
+                        </tr>
+                        <tr>
+                            <td><p><img width="15"src="star.svg">2</p></td>
+                            <td><div class="progress-bar bar-2"></div></td>
+                            <td><p>80</p></td>
+                        </tr>
+                        <tr>
+                            <td><p><img width="15"src="star.svg">1</p></td>
+                            <td><div class="progress-bar bar-1"></div></td>
+                            <td><p>96</p></td>
+                        </tr>
+                    </tbody>
+                    </div>
+                </table>
+                <div class="testimony-container">
+                    <div class="testimony-card">
+                        <div class="testimony-header">
+                            <div class="identity">
+                                <div class="pfp"></div>
+                                <p>Lorem Ipsum</p>
+                            </div>
+                            <div class="score">
+                                <p><img width="15"src="star.svg">5</p>
+                            </div>
+                        </div>
+                        <div class="testimony-content">
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus sequi, doloremque aliquid id modi earum, sint voluptatibus blanditiis iste vitae ipsam assumenda? Voluptas non velit porro veritatis saepe voluptatibus eveniet.</p>
+                        </div>
+                    </div>
+                    <div class="testimony-card">
+                        <div class="testimony-header">
+                            <div class="identity">
+                                <div class="pfp"></div>
+                                <p>Lorem Ipsum</p>
+                            </div>
+                            <div class="score">
+                                <p><img width="15"src="star.svg">5</p>
+                            </div>
+                        </div>
+                        <div class="testimony-content">
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus sequi, doloremque aliquid id modi earum, sint voluptatibus blanditiis iste vitae ipsam assumenda? Voluptas non velit porro veritatis saepe voluptatibus eveniet.</p>
+                        </div>
+                    </div>
+                    <div class="testimony-card">
+                        <div class="testimony-header">
+                            <div class="identity">
+                                <div class="pfp"></div>
+                                <p>Lorem Ipsum</p>
+                            </div>
+                            <div class="score">
+                                <p><img width="15"src="star.svg">5</p>
+                            </div>
+                        </div>
+                        <div class="testimony-content">
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus sequi, doloremque aliquid id modi earum, sint voluptatibus blanditiis iste vitae ipsam assumenda? Voluptas non velit porro veritatis saepe voluptatibus eveniet.</p>
+                        </div>
+                    </div>
+                    <div class="testimony-card">
+                        <div class="testimony-header">
+                            <div class="identity">
+                                <div class="pfp"></div>
+                                <p>Lorem Ipsum</p>
+                            </div>
+                            <div class="score">
+                                <p><img width="15"src="star.svg">5</p>
+                            </div>
+                        </div>
+                        <div class="testimony-content">
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus sequi, doloremque aliquid id modi earum, sint voluptatibus blanditiis iste vitae ipsam assumenda? Voluptas non velit porro veritatis saepe voluptatibus eveniet.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer id="support-section" style="background-color: black;">
+        <table style="width: 100%; padding: 0 5% 40px;">
+            <thead>
+                <tr>
+                    <td><h2>Support</h2></td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        <p>Customer Service Opens from 9 AM - 9 PM on weekdays</p>
+                        <p>Office Address: Queen's Promenade, Ramsey, Isle of Man</p>
+                        <p>Email: support@professor.donut.com</p>
+                        <p>Phone Number: (011) 0123456789</p>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </footer>
+</body>
+</html>
