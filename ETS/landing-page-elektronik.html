@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gudang Elektronik Pak Dadang</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Noto+Sans+Warang+Citi&display=swap');
+        *{
+            font-family: "Fira Sans", sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        html{
+            scroll-behavior: smooth;
+        }
+        body > *{
+            padding: 10px 5%;
+        }
+        a, button{
+            text-decoration: none;
+            transition: all .3s ease 0s;
+        }
+        header{
+            display: flex;
+            position: sticky;
+            top: 0;
+            justify-content: space-between;
+            padding: 20px 20px;
+        }
+        header, footer{
+            background-color: white;
+            align-items: center;
+            border-top: 1px solid gray;
+            border-bottom: 1px solid gray;
+        }
+        .logo{
+            font-size: 18px;
+        }
+        .nav-links li{
+            display: block;
+            padding-left: 20px;
+        }
+        .nav-links a{
+            color: black;
+        }
+        .nav-links a:hover{
+            padding: 1px;
+            background-color: hsl(0, 0%, 90%);
+        }
+        section{
+            padding: 39px 0px 39px;
+        }
+        .lead{
+            font-weight: 600;
+            font-size: 24px;
+        }
+        #home{
+            display: block;
+            justify-content: space-evenly;
+            align-items: center;
+        }
+        .home-text{
+            width: 100%;
+            margin-bottom: 40px;
+        }
+        .home-text > *{
+            margin-top: 20px;
+        }
+        .home-text button{
+            background-color: dodgerblue;
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+        }
+        .home-text button:hover{
+            background-color: hsl(210, 100%, 40%);
+        }
+        #produk > p{
+            text-align: center  ;
+        }
+        .produk-container{
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-evenly;
+            margin: 10px 0px 10px;
+        }
+        .produk-card{
+            border-collapse: collapse;
+        }
+        .produk-card td{
+            padding: 20px 10px;
+        }
+        .tentang-teks > *{
+            padding: 10px 0px;
+        }
+        .tentang-img img{
+            width: 100%;
+            object-fit: cover;
+        }
+        #hubungi-kami{
+            display: flex;
+            justify-content: space-between;
+        }
+        .kontak{
+            display: flex;
+            align-items: center;
+            padding: 10px;
+        }
+        .kontak > *{
+            margin-right: 10px;
+        }
+        .icon{
+            width: 25px;
+        }
+        .sosmed-icons{
+            display: flex;
+            justify-content: space-evenly;
+            padding: 10px 0px;
+        }
+        @media (min-width: 1024px) {
+            .produk-card{
+                width: 50%;
+            }
+        }
+        @media (min-width: 768px) {
+            #home{
+                display: flex;
+            }
+            .home-text{
+                width: 40%;
+            }
+            .nav-links li{
+                display: inline-block;
+            }
+            .nav-links a:hover{
+                padding: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <p class="logo">Gudang Elektronik Pak Dadang</p>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#produk">Produk</a></li>
+                <li><a href="#tentang-kami">Tentang Kami</a></li>
+                <li><a href="#hubungi-kami">Hubungi Kami</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section id="home">
+            <div class="home-text">
+                <p class="lead">Produk Terlaris</p>
+                <p class="desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta iusto nihil quidem, dolore animi vitae ducimus esse magni, consectetur vel nesciunt id sit! Asperiores quam quidem aperiam cumque itaque et?</p>
+                <button>Beli Sekarang!</button>
+            </div>
+            <div class="home-img">
+                <img width="300" src="https://www.valucomputers.co.uk/acatalog/t490-front.jpg">
+            </div>
+        </section>
+        <hr class="solid">
+        <section id="produk">
+            <p class="lead">Produk yang Kami Jual</p>
+            <div class="produk-container">
+                <table class="produk-card">
+                    <tr>
+                        <td><img width="150" src="https://gallerypng.com/wp-content/uploads/2024/08/black-iphone-png-photo-628x750.png"></td>
+                        <td>
+                            <p class="lead">Smartphone</p>
+                            <p class="desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid, ullam quos error pariatur, officiis est minima impedit, consectetur amet alias dolorum voluptate id nobis! Tempora perferendis accusamus quas tempore natus?</p>
+                        </td>
+                </table>
+                <table class="produk-card">
+                    <tr>
+                        <td><img width="150" src="https://www.asus.com/media/Odin/Websites/global/Series/9.png"></td>
+                        <td>
+                            <p class="lead">Laptop</p>
+                            <p class="desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid, ullam quos error pariatur, officiis est minima impedit, consectetur amet alias dolorum voluptate id nobis! Tempora perferendis accusamus quas tempore natus?</p>
+                        </td>
+                </table>
+                <table class="produk-card">
+                    <tr>
+                        <td><img width="150" src="https://i0.wp.com/winpoin.com/wp-content/uploads/2017/02/bagian-bagian-komputer.png?resize=800%2C509&ssl=1"></td>
+                        <td>
+                            <p class="lead">Komputer</p>
+                            <p class="desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid, ullam quos error pariatur, officiis est minima impedit, consectetur amet alias dolorum voluptate id nobis! Tempora perferendis accusamus quas tempore natus?</p>
+                        </td>
+                </table>
+                <table class="produk-card">
+                    <tr>
+                        <td><img width="150" src="https://resource.logitech.com/w_692,c_lpad,ar_4:3,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/logitech/en/products/speakers/computer-speakers/z625/gallery/z625-gallery-1-new.png?v=1"></td>
+                        <td>
+                            <p class="lead">Speaker</p>
+                            <p class="desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid, ullam quos error pariatur, officiis est minima impedit, consectetur amet alias dolorum voluptate id nobis! Tempora perferendis accusamus quas tempore natus?</p>
+                        </td>
+                </table>
+            </div>
+            <p>Dan lainnya...</p>
+        </section>
+        <hr class="solid">
+        <section id="tentang-kami">
+            <div class="tentang-card">
+                <div class="tentang-img">
+                    <img height="200px" src="https://sdsexpress.co.id/wp-content/uploads/2022/11/warehouse.jpg">
+                </div>
+                <div class="tentang-teks">
+                    <p class="lead">Mengenai Kami</p>
+                    <p class="desc">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aspernatur deleniti, nulla dolorum iusto odit blanditiis minus magni, officiis quas facilis laborum vero veritatis excepturi libero perferendis tenetur. Optio, sed reiciendis.
+                    Cupiditate, earum numquam. Perferendis commodi dicta, voluptatibus ut voluptate consequuntur? Sapiente consequuntur aut, minus minima, tenetur recusandae quibusdam debitis cumque aliquid, adipisci aperiam expedita velit. Rerum nostrum molestias reprehenderit quaerat.
+                    Pariatur itaque voluptas soluta obcaecati molestias. Totam culpa explicabo dicta dolorem repudiandae quam ad numquam sint, quod voluptates, eaque soluta, quidem optio debitis dolorum incidunt. Rerum accusantium perferendis magnam ea!</p>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer id="hubungi-kami">
+        <div class="informasi">
+            <div class="kontak">
+                <img class="icon" src="https://icons.veryicon.com/png/o/commerce-shopping/e-commerce-website-icon/address-81.png">
+                <p class="detail">Jl. Keputih Jatinangor 6, Kelapa Empat, Surabaya</p>
+            </div>
+            
+            <div class="kontak">
+                <img class="icon" src="https://icons.veryicon.com/png/o/object/material-design-icons/phone-80.png">
+                <p class="detail">+62 012-345-678</p>
+            </div>
+            
+            <div class="kontak">
+                <img class="icon" src="https://cdn.iconscout.com/icon/free/png-256/free-email-icon-download-in-svg-png-gif-file-formats--mail-envelope-message-miscellaneous-pack-icons-1713291.png?f=webp&w=256">
+                <p class="detail">support@gudang.dadang.com</p>
+            </div>
+        </div>
+        <div class="sosmed">
+            <p class="lead">Ikuti Kami Di</p>
+            <div class="sosmed-icons">
+                <a href="https://www.instagram.com"><img class="icon" src="https://www.iconpacks.net/icons/2/free-instagram-logo-icon-3497-thumb.png"></a>
+                <a href="https://www.facebook.com"><img class="icon" src="https://static.vecteezy.com/system/resources/previews/023/986/603/non_2x/facebook-logo-facebook-logo-transparent-facebook-icon-transparent-free-free-png.png"></a>
+                <a href="https://www.youtube.com"><img class="icon" src="https://cdn-icons-png.flaticon.com/512/5968/5968975.png"></a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
