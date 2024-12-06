@@ -34,5 +34,9 @@
         </p>
         <?php endif; ?>
     </main>
+    <div class="py-2 position-fixed fixed-bottom">
+        <p class="h6">Butuh Bantuan?</p>
+        <a href="list-pegawai.php" class="btn btn-secondary">Hubungi Kami</a>
+    </div>
 </body>
 </html>
