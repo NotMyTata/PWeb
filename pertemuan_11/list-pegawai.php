@@ -15,6 +15,9 @@
     <header>
         <p class="h2">Kontak Pegawai</p>
     </header>
+    <nav>
+        <a href="form-addPegawai.php">[+] Tambah Pegawai</a>
+    </nav>
     <table class="table table-striped">
         <thead>
             <tr>
@@ -37,6 +40,10 @@
                 echo "<td>".$pegawai['nama']."</td>";
                 echo "<td>".$pegawai['email']."</td>";
                 echo "<td>".$pegawai['telp']."</td>";
+                echo "<td>";
+                echo "<a href='form-editPegawai.php?id=".$pegawai['id']."'>Edit</a> | ";
+                echo "<a href='hapusPegawai.php?id=".$pegawai['id']."'>Hapus</a>";
+                echo "</td>";
 
                 echo "</tr>";
             }
