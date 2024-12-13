@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog Editor</title>
+    <link href="../bootstrap/bootstrap.min.css" rel="stylesheet">
+    <link href="../styles.css" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="../images/ic_logo.svg">
+</head>
+<body class="d-flex justify-content-center align-items-center">
+    <main class="p-4">
+        <p class="h2 text-center">Blog Editor</p>
+        <form action="process_blog.php" method="post" class="card p-3">
+            <div>
+                <label class="form-label" for="title">Title</label>
+                <input type="text" class="form-control" id="title" name="title" maxlength="50" required>
+            </div>
+            <div class="py-2">
+                <label class="form-label" for="thumbnail">Thumbnail</label>
+                <input type="file" class="form-control" id="thumbnail" name="thumbnail" accept=".png, .jpg, .jpeg" required>
+            </div>
+            <div class="py-2">
+                <label class="form-label" for="tag">Tag</label>
+                <select class="form-select" id="tag" name="tag" required>
+                    <option value="Food">Food</option>
+                    <option value="Travel">Travel</option>
+                    <option value="Sport">Sport</option>
+                    <option value="Tech">Tech</option>
+                    <option value="Game">Game</option>
+                    <option value="Life">Life</option>
+                </select>
+            </div>
+            <div class="py-2">
+                <div>
+                    <label class="form-label" for="content">Content</label>
+                    <textarea class="form-control" id="content" name="content" maxlength="10000" required></textarea>
+                </div>
+                <div>
+                    <input type="checkbox" name="publish" id="publish">
+                    <label for="publish">Publish Blog</label>
+                </div>
+            </div>
+            <div class="d-flex justify-content-between py-2">
+                <a href="./home_page.php" class="btn btn-outline-primary">Cancel</a>
+                <button type="submit" class="btn btn-primary" name="submit">Submit</button>
+            </div>
+        </form>
+    </main>
+</body>
+</html>

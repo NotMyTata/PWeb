@@ -1,0 +1,22 @@
+.text-active{
+    color: rgba(0, 0, 0, 1);
+}
+.text-inactive{
+    color: rgba(0, 0, 0, 0.35);
+}
+.btn-primary{
+    background-color: rgba(0, 0, 0, 1);
+    border-color: black;
+}
+.btn-primary:hover{
+    background-color: rgba(0, 0, 0, 0.75);
+    border-color: black;
+}
+.btn-outline-primary{
+    color: black;
+    border-color: black;
+}
+.btn-outline-primary:hover{
+    background-color: rgb(0, 0, 0, 0.35);
+    border-color: white;
+}
