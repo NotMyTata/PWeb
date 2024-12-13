@@ -14,13 +14,13 @@
         }
     </style>
 </head>
-<body class="d-flex align-items-center">
+<body class="d-flex flex-column align-items-center">
     <main class="m-auto p-4 rounded shadow">
         <p class="h5">Pendaftaran Siswa Baru</p>
         <p class="h1">SMK Cerdas</p>
         <div class="py-2">
             <a href="form-daftar.php" class="btn btn-primary">Daftar Sekarang</a>
-            <a href="list-siswa.php" class="btn btn-outline-secondary">List Pendaftar</a>
+            <a href="list-siswa.php" class="btn btn-outline-primary">List Pendaftar</a>
         </div>
         <?php if(isset($_GET['status'])): ?>
         <p>
@@ -34,5 +34,9 @@
         </p>
         <?php endif; ?>
     </main>
+    <div class="py-2 position-fixed fixed-bottom">
+        <p class="h6">Butuh Bantuan?</p>
+        <a href="list-pegawai.php" class="btn btn-secondary">Hubungi Kami</a>
+    </div>
 </body>
 </html>
