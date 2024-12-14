@@ -5,8 +5,8 @@ include('../config.php');
 if(!isset($_SESSION['current_id'])){
     die('Unknown user');
 } else {
-    $id = $_SESSION['current_id'];
-    $sql = "SELECT * FROM blogger br JOIN blog b ON (br.id = b.author_id) WHERE br.id = '$id'";
+    $user_id = $_SESSION['current_id'];
+    $sql = "SELECT * FROM blogger br JOIN blog b ON (br.id = b.author_id) WHERE br.id = '$user_id'";
     $result = mysqli_query($db, $sql);
 }
 
@@ -20,6 +20,27 @@ if(!isset($_SESSION['current_id'])){
     <link href="../bootstrap/bootstrap.min.css" rel="stylesheet">
     <link href="../styles.css" rel="stylesheet">
     <link rel="icon" type="image/x-icon" href="../images/ic_logo.svg">
+    <style>
+        .card{
+            align-items: start;
+        }
+        .blog-title, .blog-desc{
+            padding-left: 10px;
+        }
+        a{
+            text-decoration: none;
+        }
+        .blog-title a{
+            font-size: x-large;
+            font-weight: bold;
+        }
+        .blog-title{
+            vertical-align: bottom;
+        }
+        .blog-desc{
+            vertical-align: top;
+        }
+    </style>
 </head>
 <body>
     <header class="py-2 px-4 shadow">
@@ -29,7 +50,7 @@ if(!isset($_SESSION['current_id'])){
             </a>
 
             <div class="d-flex">
-                <p class="h4 me-4"><a href='#' class="text-decoration-none text-active">Home</a></p>
+                <p class="h4 me-4"><a href='home_page.php' class="text-decoration-none text-active">Home</a></p>
                 <p class="h4"><a href='../explore/explore_page.php' class="text-decoration-none text-inactive">Explore</a></p>
             </div>
 
@@ -50,19 +71,33 @@ if(!isset($_SESSION['current_id'])){
                 </div>   
                 <?php 
                 while($blog = mysqli_fetch_array($result)){
-                    echo "<div class='card'>
+                    $blog_id = $blog['id'];
+                    $sql = "SELECT * FROM blog b JOIN liked_blog lb ON (b.id = lb.blog_id) WHERE b.id = '$blog_id'";
+                    $data = mysqli_query($db, $sql);
+                    $likes = mysqli_num_rows($data);
+
+                    echo "<div class='mb-3 card'>
                     <table class='text-start'>
                     <tr>
-                        <td rowspan='2'>
+                        <td class='blog-img' rowspan='2'>
                             <img src='../images/thumbnail/".$blog['thumbnail']."' width='100' height='100'>
                         </td>
-                        <td>
-                            <p class='h4'><a href='../blog_page.php?id=".$blog['id']."'>".$blog['title']."</a></p>
+                        <td class='blog-title'>
+                            <a href='../blog_page.php?id=".$blog['id']."'>".$blog['title']."</a>
                         </td>
                     </tr>
                     <tr>
-                        <td>
-                            <p>".($blog['published'] == 1? 'Published' : 'Drafted') ." | ". $blog['posted_date']." | ".$blog['tag']." | Liked: 12 | Views: ".$blog['views']." | <a href='blog_editor_edit_page.php?id=".$blog['id']."'>Edit</a> | <a href='delete_blog.php?id=".$blog['id']."'>Delete</a></p>
+                        <td class='blog-desc'>
+                            <a>
+                            ".($blog['published'] == 1? 'Published' : 'Drafted') .
+                            "<img class='ms-2 me-1' src='../images/ic_date.svg' height='10'>". $blog['posted_date'].
+                            "<img class='ms-2 me-1' src='../images/ic_tag.svg' height='10'>".$blog['tag'].
+                            "<img class='ms-2 me-1' src='../images/ic_like.svg' height='10'>".$likes.
+                            "<img class='ms-2 me-1' src='../images/ic_view.svg' height='10'>".$blog['views'].
+                            " | 
+                            <a href='blog_editor_edit_page.php?id=".$blog['id']."'>Edit</a>
+                            <a href='delete_blog.php?id=".$blog['id']."'>Delete</a>
+                            </a>
                         </td>
                     </tr>
                     </table>
@@ -82,33 +117,26 @@ if(!isset($_SESSION['current_id'])){
                         <tr>
                             <td>Total Blogs</td>
                             <?php
-
                             echo "<td>";
-                            
-                            $sql = "SELECT * FROM blogger br JOIN blog b ON (br.id = b.author_id) WHERE br.id = '$id'";
+                            $sql = "SELECT * FROM blogger br JOIN blog b ON (br.id = b.author_id) WHERE br.id = '$user_id'";
                             $result = mysqli_query($db, $sql);
-
                             $count = mysqli_num_rows($result);
                             echo $count;
-
                             echo "</td>";
                             ?>
+
                             <td>Majority Tag</td>
                             <?php
-
                             echo "<td>";
-                            
                             $sql = "SELECT b.tag, COUNT(*) as total FROM blogger br JOIN blog b ON (br.id = b.author_id) 
-                            WHERE br.id = '$id' GROUP BY b.tag ORDER BY total DESC LIMIT 1";
+                            WHERE br.id = '$user_id' GROUP BY b.tag ORDER BY total DESC LIMIT 1";
                             $result = mysqli_query($db, $sql);
-
                             if(mysqli_num_rows($result) > 0){
                                 $row = mysqli_fetch_array($result);
                                 echo $row['tag'];
                             } else {
                                 echo 'None';
                             }
-
                             echo "</td>";
 
                             ?>
@@ -116,25 +144,60 @@ if(!isset($_SESSION['current_id'])){
                         <tr>
                             <td>Total Likes</td>
                             <?php
-
                             echo "<td>";
-                            
-                            $sql = "SELECT * FROM blogger br JOIN blog b ON (br.id = b.author_id) JOIN liked_blog lb ON (b.id = lb.blog_id) WHERE br.id = '$id'";
+                            $sql = "SELECT * FROM blogger br JOIN blog b ON (br.id = b.author_id) JOIN liked_blog lb ON (b.id = lb.blog_id) WHERE br.id = '$user_id'";
                             $result = mysqli_query($db, $sql);
-
                             $count = mysqli_num_rows($result);
                             echo $count;
-
                             echo "</td>";
                             ?>
-                            <td>Most Liked Blog</td>
-                            <td>0</td>
+
+                            <td>Most Liked</td>
+                            <?php
+                            echo "<td>";
+                            $sql = "SELECT COUNT(*) as total, blog_id FROM liked_blog JOIN blog b ON (blog_id = b.id) WHERE author_id = '$user_id' GROUP BY blog_id ORDER BY total DESC LIMIT 1";
+                            $result = mysqli_query($db, $sql);
+                            $exist = mysqli_num_rows($result);
+                            if($exist){
+                                $count = mysqli_fetch_array($result);
+                                echo $count['total'];
+                            } else {
+                                echo 0;
+                            }
+                            echo "</td>";
+                            ?>
                         </tr>
                         <tr>
                             <td>Total Views</td>
-                            <td>0</td>
-                            <td>Most Viewed Blog</td>
-                            <td>0</td>
+                            <?php
+                            echo "<td>";
+                            $sql = "SELECT views FROM blog b WHERE b.author_id ='$user_id'";
+                            $result = mysqli_query($db, $sql);
+                            if(mysqli_num_rows($result) > 0){
+                                $count = 0;
+                                while($row = mysqli_fetch_array($result)){
+                                    $count += $row['views'];
+                                }
+                                echo $count;
+                            } else {
+                                echo 0;
+                            }
+                            echo "</td>";
+                            ?>
+
+                            <td>Most Viewed</td>
+                            <?php
+                            echo "<td>";
+                            $sql = "SELECT b.views as highest FROM blog b WHERE b.author_id='$user_id' ORDER BY highest DESC LIMIT 1";
+                            $result = mysqli_query($db, $sql);
+                            if(mysqli_num_rows($result) > 0){
+                                $count = mysqli_fetch_array( $result);
+                                echo $count['highest'];
+                            } else {
+                                echo 0;
+                            }
+                            echo "</td>";
+                            ?>
                         </tr>
                     </tbody>
                 </table>
@@ -143,6 +206,44 @@ if(!isset($_SESSION['current_id'])){
             
             <div class="your-liked-blogs h-50 w-100 py-2">
                 <p class="h4">Your Liked Blogs</p>
+                <?php 
+                $sql = "SELECT * FROM liked_blog JOIN blog ON (blog_id = id) WHERE user_id = '$user_id' ORDER BY title ASC";
+                $result = mysqli_query($db, $sql);
+                while($blog = mysqli_fetch_array($result)){
+                    $blog_id = $blog['id'];
+                    $sql = "SELECT * FROM blog b JOIN liked_blog lb ON (b.id = lb.blog_id) WHERE b.id = '$blog_id'";
+                    $query = mysqli_query($db, $sql);
+                    $likes = mysqli_num_rows($query);
+                    
+                    $sql = "SELECT * FROM blogger br JOIN blog b ON (br.id = b.author_id) WHERE b.id = '$blog_id'";
+                    $query = mysqli_query($db, $sql);
+                    $blogger = mysqli_fetch_array($query);
+
+                    echo "<div class='mb-3 card'>
+                    <table class='text-start'>
+                    <tr>
+                        <td class='blog-img' rowspan='2'>
+                            <img src='../images/thumbnail/".$blog['thumbnail']."' width='100' height='100'>
+                        </td>
+                        <td class='blog-title'>
+                            <a href='../blog_page.php?id=".$blog['id']."'>".$blog['title']."</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class='blog-desc'>
+                            <a>
+                            <img class='ms-2 me-1' src='../images/ic_profile.svg' height='10'>".$blogger['username'].
+                            "<img class='ms-2 me-1' src='../images/ic_date.svg' height='10'>". $blog['posted_date'].
+                            "<img class='ms-2 me-1' src='../images/ic_tag.svg' height='10'>".$blog['tag'].
+                            "<img class='ms-2 me-1' src='../images/ic_like.svg' height='10'>".$likes.
+                            "<img class='ms-2 me-1' src='../images/ic_view.svg' height='10'>".$blog['views']."
+                            </a>
+                        </td>
+                    </tr>
+                    </table>
+                    </div>";
+                }
+                ?>
             </div>
         </div>
     </main>

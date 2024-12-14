@@ -28,13 +28,14 @@ if($blog['author_id'] != $id){
     <main class="p-4">
         <p class="h2 text-center">Blog Editor</p>
         <form action="process_blog.php" method="post" class="card p-3">
+            <input type="hidden" name="id" value="<?php echo $blog_id ?>">
             <div>
                 <label class="form-label" for="title">Title</label>
                 <input type="text" class="form-control" id="title" name="title" maxlength="50" value="<?php echo $blog['title'] ?>" required>
             </div>
             <div class="py-2">
                 <label class="form-label" for="thumbnail">Thumbnail</label>
-                <input type="file" class="form-control" id="thumbnail" name="thumbnail" accept=".png, .jpg, .jpeg" required>
+                <input type="file" class="form-control" id="thumbnail" name="thumbnail" accept=".png, .jpg, .jpeg">
             </div>
             <div class="py-2">
                 <label class="form-label" for="tag">Tag</label>
@@ -54,13 +55,13 @@ if($blog['author_id'] != $id){
                     <textarea class="form-control" id="content" name="content" maxlength="10000" required><?php echo $blog['content'] ?></textarea>
                 </div>
                 <div>
-                    <input type="checkbox" name="publish" id="publish">
+                    <input type="checkbox" name="publish" value="publish" <?php echo $blog['published']? "checked" : "" ?>>
                     <label for="publish">Publish Blog</label>
                 </div>
             </div>
             <div class="d-flex justify-content-between py-2">
-                <a href="./home_page.php" class="btn btn-outline-primary">Cancel</a>
-                <button type="submit" class="btn btn-primary" name="submit">Submit</button>
+                <a href="home_page.php" class="btn btn-outline-primary">Cancel</a>
+                <button type="submit" class="btn btn-primary" name="edit" value="edit">Edit</button>
             </div>
         </form>
     </main>

@@ -6,12 +6,15 @@ if(isset($_POST['login'])){
     
     $username = $_POST['username'];
     $pass = $_POST['password'];
+    $remember = $_POST['remember'] == 'remember'? 1 : 0;
+
     
     $sql = "SELECT * FROM blogger WHERE username = '$username' AND pass = '$pass' LIMIT 1";
     $result = mysqli_query($db, $sql);
+    
 
     if(mysqli_num_rows($result) < 1){
-        die("Unable to fetch user");
+        header('Location: login_page.html?status=failed');
     } else {
         $blogger = mysqli_fetch_assoc($result);
         $_SESSION['current_id'] = $blogger['id'];
@@ -26,7 +29,7 @@ if(isset($_POST['login'])){
     $repass = $_POST['repassword'];
     
     if($pass != $repass){
-        die("Password doesn't match");
+        header('Location login_page.html?status=failed');
     }
 
     $sql = "SELECT * FROM blogger WHERE username = '$username'";
@@ -41,11 +44,9 @@ if(isset($_POST['login'])){
     if($result){
         header('Location: login_page.html?status=success');
     } else {
-        die("Gagal menambahkan");
+        header('Location: login_page.html?status=failed');
     }
 
-} else {
-    die("Fail");
 }
 
 ?>
