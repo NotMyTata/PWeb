@@ -40,13 +40,33 @@ if(!isset($_SESSION['current_id'])){
         .blog-desc{
             vertical-align: top;
         }
+        .blog-img img{
+            height: 100px;
+            width: 100px;
+        }
+        main .left-side, main .right-side{
+            width: 50%;
+        }
+        @media (max-width: 375px){
+            header .logo{
+                display: none;
+            }
+        }
+        @media (max-width: 768px) {
+            main{
+                flex-direction: column;
+            }
+            main .left-side, main .right-side{
+                width: 100%;
+            }
+        }
     </style>
 </head>
 <body>
     <header class="py-2 px-4 shadow">
         <nav class="navbar">
             <a href='#'>
-                <img src="../images/ic_logo.svg" height="30">
+                <img class="logo" src="../images/ic_logo.svg" height="30">
             </a>
 
             <div class="d-flex">
@@ -63,7 +83,7 @@ if(!isset($_SESSION['current_id'])){
 
 
     <main class="d-flex">
-        <div class="left-side p-4 h-100 w-50">
+        <div class="left-side p-4 h-100">
             <div class="your-blogs">
                 <div class="d-flex justify-content-between py-2">
                     <p class="h4">Your Blogs</p>
@@ -71,6 +91,7 @@ if(!isset($_SESSION['current_id'])){
                 </div>   
                 <?php 
                 while($blog = mysqli_fetch_array($result)){
+                    $author_id = $blog['author_id'];
                     $blog_id = $blog['id'];
                     $sql = "SELECT * FROM blog b JOIN liked_blog lb ON (b.id = lb.blog_id) WHERE b.id = '$blog_id'";
                     $data = mysqli_query($db, $sql);
@@ -80,7 +101,7 @@ if(!isset($_SESSION['current_id'])){
                     <table class='text-start'>
                     <tr>
                         <td class='blog-img' rowspan='2'>
-                            <img src='../images/thumbnail/".$blog['thumbnail']."' width='100' height='100'>
+                            <img src='../images/thumbnail/user_blog/$author_id/".$blog['thumbnail']."'
                         </td>
                         <td class='blog-title'>
                             <a href='../blog_page.php?id=".$blog['id']."'>".$blog['title']."</a>
@@ -88,16 +109,15 @@ if(!isset($_SESSION['current_id'])){
                     </tr>
                     <tr>
                         <td class='blog-desc'>
-                            <a>
-                            ".($blog['published'] == 1? 'Published' : 'Drafted') .
-                            "<img class='ms-2 me-1' src='../images/ic_date.svg' height='10'>". $blog['posted_date'].
-                            "<img class='ms-2 me-1' src='../images/ic_tag.svg' height='10'>".$blog['tag'].
-                            "<img class='ms-2 me-1' src='../images/ic_like.svg' height='10'>".$likes.
-                            "<img class='ms-2 me-1' src='../images/ic_view.svg' height='10'>".$blog['views'].
-                            " | 
-                            <a href='blog_editor_edit_page.php?id=".$blog['id']."'>Edit</a>
+                            <div class='d-flex flex-wrap'>
+                            ".($blog['published'] == 1? 'Published' : 'Drafted') ."
+                            <div class='mx-2 align-items-baseline'><img class='me-1' src='../images/ic_date.svg' height='10'>". $blog['posted_date']."</div>
+                            <div class='mx-2 align-items-baseline'><img class='me-1' src='../images/ic_tag.svg' height='10'>".$blog['tag']."</div>
+                            <div class='mx-2 align-items-baseline'><img class='me-1' src='../images/ic_like.svg' height='10'>".$likes."</div>
+                            <div class='mx-2 align-items-baseline'><img class='me-1' src='../images/ic_view.svg' height='10'>".$blog['views']."</div> 
+                            <a class='mx-2' href='blog_editor_edit_page.php?id=".$blog['id']."'>Edit</a>
                             <a href='delete_blog.php?id=".$blog['id']."'>Delete</a>
-                            </a>
+                            </div>
                         </td>
                     </tr>
                     </table>
@@ -108,7 +128,7 @@ if(!isset($_SESSION['current_id'])){
         </div>
 
 
-        <div class="right-side p-4 h-50 w-50">
+        <div class="right-side p-4 h-100">
             <div class="your-statistics h-50 w-100 py-2">
                 <p class="h4">Your Statistics</p>
                 <table class="table table-striped-columns">
@@ -210,6 +230,7 @@ if(!isset($_SESSION['current_id'])){
                 $sql = "SELECT * FROM liked_blog JOIN blog ON (blog_id = id) WHERE user_id = '$user_id' ORDER BY title ASC";
                 $result = mysqli_query($db, $sql);
                 while($blog = mysqli_fetch_array($result)){
+                    $author_id = $blog['author_id'];
                     $blog_id = $blog['id'];
                     $sql = "SELECT * FROM blog b JOIN liked_blog lb ON (b.id = lb.blog_id) WHERE b.id = '$blog_id'";
                     $query = mysqli_query($db, $sql);
@@ -223,7 +244,7 @@ if(!isset($_SESSION['current_id'])){
                     <table class='text-start'>
                     <tr>
                         <td class='blog-img' rowspan='2'>
-                            <img src='../images/thumbnail/".$blog['thumbnail']."' width='100' height='100'>
+                            <img src='../images/thumbnail/user_blog/$author_id/".$blog['thumbnail']."'>
                         </td>
                         <td class='blog-title'>
                             <a href='../blog_page.php?id=".$blog['id']."'>".$blog['title']."</a>
@@ -231,13 +252,13 @@ if(!isset($_SESSION['current_id'])){
                     </tr>
                     <tr>
                         <td class='blog-desc'>
-                            <a>
-                            <img class='ms-2 me-1' src='../images/ic_profile.svg' height='10'>".$blogger['username'].
-                            "<img class='ms-2 me-1' src='../images/ic_date.svg' height='10'>". $blog['posted_date'].
-                            "<img class='ms-2 me-1' src='../images/ic_tag.svg' height='10'>".$blog['tag'].
-                            "<img class='ms-2 me-1' src='../images/ic_like.svg' height='10'>".$likes.
-                            "<img class='ms-2 me-1' src='../images/ic_view.svg' height='10'>".$blog['views']."
-                            </a>
+                            <div class='d-flex flex-wrap'>
+                            <div class='mx-2 align-items-baseline'><img class='me-1' src='../images/ic_profile.svg' height='10'>".$blogger['username']."</div>
+                            <div class='mx-2 align-items-baseline'><img class='me-1' src='../images/ic_date.svg' height='10'>". $blog['posted_date']."</div>
+                            <div class='mx-2 align-items-baseline'><img class='me-1' src='../images/ic_tag.svg' height='10'>".$blog['tag']."</div>
+                            <div class='mx-2 align-items-baseline'><img class='me-1' src='../images/ic_like.svg' height='10'>$likes</div>
+                            <div class='mx-2 align-items-baseline'><img class='me-1' src='../images/ic_view.svg' height='10'>".$blog['views']."</div>
+                            </div>
                         </td>
                     </tr>
                     </table>

@@ -49,21 +49,29 @@ $blogger = mysqli_fetch_array($result);
             $result = mysqli_query($db, $sql);
             
             if(mysqli_num_rows($result) == 0){
-                echo "<a class='btn btn-outline-primary' href='like_blog.php?id=".$blog['id']."&type=1'>Like Blog</a>";
+                echo "<a class='btn btn-sm btn-outline-primary' href='like_blog.php?id=".$blog['id']."&type=1'>Like Blog</a>";
             } else {
-                echo "<a class='btn btn-outline-primary' href='like_blog.php?id=".$blog['id']."&type=0'>Unlike Blog</a>";
+                echo "<a class='btn btn-sm btn-outline-primary' href='like_blog.php?id=".$blog['id']."&type=0'>Unlike Blog</a>";
             }
         }
         ?>
-        <a class="btn btn-outline-primary" href="blog_pdf.php?id=<?php echo $blog['id'] ?>">Download PDF</a>
+        <a class="btn btn-sm btn-outline-primary" href="blog_pdf.php?id=<?php echo $blog['id'] ?>">Download PDF</a>
         </div>
     </header>
     <main class="text-center py-2 px-4">
         <p class="h1"><?php echo $blog['title'] ?></p>
-        <p class="h5"><?php echo 
-        "<img class='ms-3 me-1' src='images/ic_profile.svg' height='10'>".$blogger['username'].
-        "<img class='ms-3 me-1' src='images/ic_date.svg' height='10'>".$blog['posted_date'].
-        "<img class='ms-3 me-1' src='images/ic_tag.svg' height='10'>".$blog['tag'] ?>
+        <div class="d-flex justify-content-center align-items-baseline">
+        <?php echo 
+        "<div>
+        <img class='ms-3 me-1' src='images/ic_profile.svg' height='10'>".$blogger['username'].
+        "</div>
+        <div>
+        <img class='ms-3 me-1' src='images/ic_date.svg' height='10'>".$blog['posted_date'].
+        "</div>
+        <div>
+        <img class='ms-3 me-1' src='images/ic_tag.svg' height='10'>".$blog['tag'].
+        "</div>" ?>
+        </div>
         <p class="mt-4 text-start"><?php echo $blog['content'] ?></p>
     </main>
 </body>

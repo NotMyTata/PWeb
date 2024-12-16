@@ -27,7 +27,7 @@ if($blog['author_id'] != $id){
 <body class="d-flex justify-content-center align-items-center">
     <main class="p-4">
         <p class="h2 text-center">Blog Editor</p>
-        <form action="process_blog.php" method="post" class="card p-3">
+        <form action="process_blog.php" method="post" enctype="multipart/form-data" class="card p-3">
             <input type="hidden" name="id" value="<?php echo $blog_id ?>">
             <div>
                 <label class="form-label" for="title">Title</label>

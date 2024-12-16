@@ -60,13 +60,18 @@ $result = mysqli_query($db, $sql);
         .blog-desc{
             vertical-align: top;
         }
+        @media (max-width: 375px){
+            header .logo{
+                display: none;
+            }
+        }
     </style>
 </head>
 <body>
     <header class="py-2 px-4 shadow">
         <nav class="navbar">
             <a href='../home/home_page.html'>
-                <img src="../images/ic_logo.svg" height="30">
+                <img class="logo" src="../images/ic_logo.svg" height="30">
             </a>
 
             <div class="d-flex">
@@ -122,25 +127,25 @@ $result = mysqli_query($db, $sql);
                 $query = mysqli_query($db, $sql);
                 $likes = mysqli_num_rows($query);
 
-                echo "<div class='me-4 mb-4 card'>
+                echo "<div class='mx-2 mb-4 card'>
                 <table class='text-start'>
                 <tr>
                     <td rowspan='2'>
-                        <img src='../images/thumbnail/".$blog['thumbnail']."' width='100' height='100'>
+                        <img src='../images/thumbnail/user_blog/$author_id/".$blog['thumbnail']."' width='100' height='100'>
                     </td>
                     <td class='blog-title'>
                         <a href='../blog_page.php?id=".$blog['id']."'>".$blog['title']."</a>
                     </td>
                 </tr>
                 <tr>
-                    <td class='blog-desc'>
-                        <a>
-                        <img class='ms-2 me-1' src='../images/ic_profile.svg' height='10'>".$blogger['username']."  
-                        <img class='ms-2 me-1' src='../images/ic_date.svg' height='10'>". $blog['posted_date']." 
-                        <img class='ms-2 me-1' src='../images/ic_tag.svg' height='10'>".$blog['tag']." 
-                        <img class='ms-2 me-1' src='../images/ic_like.svg' height='10'>$likes
-                        <img class='ms-2 me-1' src='../images/ic_view.svg' height='10'>".$blog['views']."
-                        </a>
+                    <td class='log-desc'>
+                        <div class='d-flex flex-wrap'>
+                        <div class='align-items-baseline'><img class='ms-2 me-1' src='../images/ic_profile.svg' height='10'>".$blogger['username']."</div>
+                        <div class='align-items-baseline'><img class='ms-2 me-1' src='../images/ic_date.svg' height='10'>". $blog['posted_date']."</div>
+                        <div class='align-items-baseline'><img class='ms-2 me-1' src='../images/ic_tag.svg' height='10'>".$blog['tag']."</div> 
+                        <div class='align-items-baseline'><img class='ms-2 me-1' src='../images/ic_like.svg' height='10'>$likes</div>
+                        <div class='align-items-baseline'><img class='ms-2 me-1' src='../images/ic_view.svg' height='10'>".$blog['views']."</div>
+                        </div>
                     </td>
                 </tr>
                 </table>
